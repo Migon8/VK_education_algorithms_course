@@ -2,15 +2,27 @@ package main
 
 import "fmt"
 
-
-
-
 func main() {
 
-	var a, b, c int
-	fmt.Scan(&a, &b)
+	var m string
 
-	c = a + b
+	fmt.Scan(&m)
 
-	fmt.Print(c)
+	counts := make(map[rune]int)
+
+	for _, ch := range m {
+		counts[ch]++
+	}
+
+	maxCount := 0
+
+	for _, count := range counts {
+		if count > maxCount {
+			maxCount = count
+
+		}
+	}
+
+	fmt.Print(maxCount)
+
 }
